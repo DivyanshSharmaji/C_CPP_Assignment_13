@@ -1,0 +1,238 @@
+Assignment - 13 A Job Ready Bootcamp in C++, DSA and IOT MySirG
+
+More on Recursion in C Language
+
+1. Write a recursive function to calculate sum of first N natural numbers
+2. Write a recursive function to calculate sum of first N odd natural numbers
+3. Write a recursive function to calculate sum of first N even natural numbers
+4. Write a recursive function to calculate sum of squares of first n natural numbers
+5. Write a recursive function to calculate sum of digits of a given number
+6. Write a recursive function to calculate factorial of a given number
+7. Write a recursive function to calculate HCF of two numbers
+8. Write a recursive function to print first N terms of Fibonacci series
+9. Write a program in C to count the digits of a given number using recursion.
+10. Write a program in C to calculate the power of any number using recursion.
+
+Solutions: 
+
+Ans-1:  #include<stdio.h>
+
+        int sum(int n){
+            if(n==1){
+                return 1;
+            }
+            else{
+                return (n+sum(n-1));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the value of n: ");
+            scanf("%d",&n);
+            printf("Sum of first %d natural numbers is: %d\n",n,sum(n));
+        
+            return 0;
+        }
+
+Ans-2:  #include<stdio.h>
+
+        int sum(int n){
+            if(n<=1){
+                return 1;
+            }
+            else{
+                return (2*n-1+sum(n-1));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the value of n: ");
+            scanf("%d",&n);
+            printf("Sum of first %d odd natural numbers is: %d\n",n,sum(n));
+        
+            return 0;
+        }
+
+Ans-3:  #include<stdio.h>
+
+        int sum(int n){
+            if(n<=1){
+                return 2;
+            }
+            else{
+                return (2*n+sum(n-1));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the value of n: ");
+            scanf("%d",&n);
+            printf("Sum of first %d even natural numbers is: %d\n",n,sum(n));
+        
+            return 0;
+        }
+
+Ans-4:  #include<stdio.h>
+
+        int sum(int n){
+            if(n<=1){
+                return 1;
+            }
+            else{
+                return (n*n+sum(n-1));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the value of n: ");
+            scanf("%d",&n);
+            printf("Sum of squares of first %d natural numbers is: %d\n",n,sum(n));
+        
+            return 0;
+        }
+
+Ans-5:  #include<stdio.h>
+
+        int sum(int n){
+            int i=10;
+            if(n<=0){
+                return 0;
+            }
+            else{
+                return (n%i+sum(n/10));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the value of n: ");
+            scanf("%d",&n);
+            printf("Sum of digits of %d is: %d\n",n,sum(n));
+        
+            return 0;
+        }
+
+Ans-6:  #include<stdio.h>
+
+        int fact(int n){
+            if(n==0){
+                return 1;
+            }
+            else{
+                return (n*fact(n-1));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the value of n: ");
+            scanf("%d",&n);
+            printf("Factorial of %d is: %d\n",n,fact(n));
+        
+            return 0;
+        }
+
+Ans-7:  #include<stdio.h>
+
+        int h;
+
+        int hcf(int a,int b){
+            static int i=2,result=1;
+            if(i>h){
+                return result;
+            }
+            else{
+                if(a%i==0 && b%i==0){
+                    result = i;
+                }
+                i++;
+                hcf(a,b);
+            }
+        }
+        int main(){
+        
+            int n1,n2;
+            printf("Enter two numbers: ");
+            scanf("%d%d",&n1,&n2);
+            h = n1<n2?n1:n2;
+            printf("HCF is : %d\n",hcf(n1,n2));
+        
+            return 0;
+        }
+
+Ans-8:  #include<stdio.h>
+
+        void printFib(int n){
+            static int a=1,b,c;
+            if(n>0){
+                printFib(n-1);
+                c = a+b;
+                a = b;
+                b = c;
+                printf("%d ",a);
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter n: ");
+            scanf("%d",&n);
+            printFib(n);
+        
+            return 0;
+        }
+
+Ans-9:  #include<stdio.h>
+
+        int digits(int n){
+            if(n<=0){
+                return 0;
+            }
+            else{
+                return (1+digits(n/10));
+            }
+        }
+
+        int main(){
+        
+            int n;
+            printf("Enter the number: ");
+            scanf("%d",&n);
+            printf("%d\n",digits(n));
+        
+            return 0;
+        }
+
+Ans-10: #include<stdio.h>
+
+        int power(int a,int b){
+            if(b==1){
+                return a;
+            }
+            else{
+                return (a*power(a,b-1));
+            }
+        }
+
+        int main(){
+        
+            int a,b;
+            printf("Enter the number: ");
+            scanf("%d",&a);
+            printf("Enter the power: ");
+            scanf("%d",&b);
+            printf("%d\n",power(a,b));
+        
+            return 0;
+        }
